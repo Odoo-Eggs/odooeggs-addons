@@ -4,10 +4,10 @@
 
     <!-- account chart  -->
     <record id="tn_chart_template" model="account.chart.template">
-        <field name="property_account_receivable_id" ref="pcg_70"/>
+        <field name="property_account_receivable_id" ref="pcg_4111"/>
         <field name="property_account_payable_id" ref="pcg_4011"/>
-        <field name="property_account_income_categ_id" ref="pcg_41"/>
-        <field name="property_account_expense_categ_id" ref="pcg_401"/>
+        <field name="property_account_expense_categ_id" ref="pcg_607"/>
+        <field name="property_account_income_categ_id" ref="pcg_707"/>
         <field name="income_currency_exchange_account_id" ref="pcg_756"/>
         <field name="expense_currency_exchange_account_id" ref="pcg_655"/>
     </record>
@@ -67,8 +67,8 @@
         <field name="sequence">10</field>
         <field name="description">FODEC 1%</field>
         <field name="name">FODEC (sale)</field>
-        <field name="account_id" ref="pcg_43651"/>
-        <field name="refund_account_id" ref="pcg_43651"/>
+        <field name="account_id" ref="pcg_43678"/>
+        <field name="refund_account_id" ref="pcg_43678"/>
         <field name="price_include" eval="0"/>
         <field name="include_base_amount">1</field>
         <field name="amount">1</field>
@@ -83,8 +83,8 @@
         <field name="sequence">10</field>
         <field name="description">TVA 7%</field>
         <field name="name">TVA 7% (sale)</field>
-        <field name="account_id" ref="pcg_43651"/>
-        <field name="refund_account_id" ref="pcg_43651"/>
+        <field name="account_id" ref="pcg_43671"/>
+        <field name="refund_account_id" ref="pcg_43671"/>
         <field name="price_include" eval="0"/>
         <field name="amount">7</field>
         <field name="amount_type">percent</field>
@@ -98,8 +98,8 @@
         <field name="sequence">10</field>
         <field name="description">TVA 13%</field>
         <field name="name">TVA 13% (sale)</field>
-        <field name="account_id" ref="pcg_43651"/>
-        <field name="refund_account_id" ref="pcg_43651"/>
+        <field name="account_id" ref="pcg_43671"/>
+        <field name="refund_account_id" ref="pcg_43671"/>
         <field name="price_include" eval="0"/>
         <field name="amount">13</field>
         <field name="amount_type">percent</field>
@@ -113,8 +113,8 @@
         <field name="sequence">10</field>
         <field name="description">TVA 19%</field>
         <field name="name">TVA 19% (sale)</field>
-        <field name="account_id" ref="pcg_43651"/>
-        <field name="refund_account_id" ref="pcg_43651"/>
+        <field name="account_id" ref="pcg_43671"/>
+        <field name="refund_account_id" ref="pcg_43671"/>
         <field name="price_include" eval="0"/>
         <field name="amount">19</field>
         <field name="amount_type">percent</field>
@@ -130,8 +130,8 @@
         <field name="sequence">10</field>
         <field name="description">FODEC 1%</field>
         <field name="name">FODEC (purchase)</field>
-        <field name="account_id" ref="pcg_43651"/>
-        <field name="refund_account_id" ref="pcg_43651"/>
+        <field name="account_id" ref="pcg_6652"/>
+        <field name="refund_account_id" ref="pcg_6652"/>
         <field name="price_include" eval="0"/>
         <field name="include_base_amount">1</field>
         <field name="amount">1</field>
@@ -146,8 +146,8 @@
         <field name="sequence">10</field>
         <field name="description">TVA 7%</field>
         <field name="name">TVA 7% (purchase)</field>
-        <field name="account_id" ref="pcg_43651"/>
-        <field name="refund_account_id" ref="pcg_43651"/>
+        <field name="account_id" ref="pcg_43666"/>
+        <field name="refund_account_id" ref="pcg_43666"/>
         <field name="price_include" eval="0"/>
         <field name="amount">7</field>
         <field name="amount_type">percent</field>
@@ -161,8 +161,8 @@
         <field name="sequence">10</field>
         <field name="description">TVA 13%</field>
         <field name="name">TVA 13% (purchase)</field>
-        <field name="account_id" ref="pcg_43651"/>
-        <field name="refund_account_id" ref="pcg_43651"/>
+        <field name="account_id" ref="pcg_43666"/>
+        <field name="refund_account_id" ref="pcg_43666"/>
         <field name="price_include" eval="0"/>
         <field name="amount">13</field>
         <field name="amount_type">percent</field>
@@ -176,8 +176,8 @@
         <field name="sequence">10</field>
         <field name="description">TVA 19%</field>
         <field name="name">TVA 19% (purchase)</field>
-        <field name="account_id" ref="pcg_43651"/>
-        <field name="refund_account_id" ref="pcg_43651"/>
+        <field name="account_id" ref="pcg_43666"/>
+        <field name="refund_account_id" ref="pcg_43666"/>
         <field name="price_include" eval="0"/>
         <field name="amount">19</field>
         <field name="amount_type">percent</field>
