@@ -4,7 +4,7 @@
     'name': 'Tunisian Banks data',
     'desc' : 'Tunisian Banks data',
     'version': '12.0.1.0.0',
-    'license': '',
+    'license': 'AGPL-3',
     'category': 'Localization',
     'author': 'Odoo_Eggs',
     'website': 'https://github.com/Odoo-Eggs/odooeggs-addons',

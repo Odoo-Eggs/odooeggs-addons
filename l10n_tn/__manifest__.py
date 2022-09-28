@@ -4,7 +4,7 @@
     'name': 'Tunisian Accounting',
     'desc' : 'Tunisian accounting chart and tax localization',
     'version': '12.0.1.0.0',
-    'license': '',
+    'license': 'AGPL-3',
     'category': 'Localization',
     'author': 'Ahmed Foudhaili, '
               'Odoo-Eggs',
@@ -19,4 +19,6 @@
         'data/account_chart_template_configure_data.xml',
     ],
     'installable': True,
+    'application': False,
+    'auto_install': False
 }
