@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="0">
+    <record id="res_bank_baraka" model="res.bank">
+        <field name="name">Al Baraka (Baraka)</field>
+        <field name="bic">BEITTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">88, Avenue Hedi Chaker 1002 Tunis</field>
+        <field name="zip"></field>
+        <field name="phone">+216 71 790 000</field>
+        <field name="email">contact@albarakabank.com.tn</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_amen" model="res.bank">
+        <field name="name">Amen Bank (Amen)</field>
+        <field name="bic">CFCTTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">Avenue Mohamed V 1002 Tunis - Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">(+216) 71 148 000</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_abc" model="res.bank">
+        <field name="name">Arab Banking Corporation onshore (ABC)</field>
+        <field name="bic">ABCOTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">ABC Building - Rue du Lac d'Annecy - 1053 Les Berges du Lac</field>
+        <field name="zip"></field>
+        <field name="phone">(216) (71) 861 861</field>
+        <field name="email">abc.tunis@arabbanking.com</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_atb" model="res.bank">
+        <field name="name">Arab Tunisian Bank (ATB)</field>
+        <field name="bic">ATBKTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">9 rue Hedi Nouira 1001 Tunis - Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">(+216) 71 35 11 55</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_attijari" model="res.bank">
+        <field name="name">Attijari bank (Attijari)</field>
+        <field name="bic">BSTUTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">24, rue Hédi Karray Centre Urbain Nord - 1080 Tunis Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">+216 70 012 000</field>
+        <field name="email">courrier@attijaribank.com.tn</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_bh" model="res.bank">
+        <field name="name">Banque d'Habitat (BH)</field>
+        <field name="bic">BHBKTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">18 avenue Mohamed 5 1080 Tunis - Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">(+216) 71 110 000</field>
+        <field name="email">banquehabitat@bh.fin.tn,contact@bh.fin.tn</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_bt" model="res.bank">
+        <field name="name">Banque de Tunisie (BT)</field>
+        <field name="bic">BCTNTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">2, rue de Turquie - 1001 Tunis</field>
+        <field name="zip"></field>
+        <field name="phone">+216 71 332 188</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_bte" model="res.bank">
+        <field name="name">Banque de Tunisie et des Emirats (BTE)</field>
+        <field name="bic">BTEXTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">5bis, rue Mohamed Badra 1002 Tunis - Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">71 783 600</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_bfpme" model="res.bank">
+        <field name="name">Banque financement Pet. et Moy. Entreprises (BFPME)</field>
+        <field name="bic">BFPMTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">34, Rue Hédi Karray Centre Urbain Nord El Menzah 4 - 1004 Tunis</field>
+        <field name="zip"></field>
+        <field name="phone">+216 70 102 200</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_bft" model="res.bank">
+        <field name="name">Banque Franco-Tunisienne (BFT)</field>
+        <field name="bic">BFTNTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">Rue 8365 Cité Ennassim Montplaisir - 1002 Tunis belvédère</field>
+        <field name="zip"></field>
+        <field name="phone">+216 71 890 355</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_biat" model="res.bank">
+        <field name="name">Banque Internationale Arabe de Tunisie (BIAT)</field>
+        <field name="bic">BIATTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">70/72, Av Habib Bourguiba - BP 520 - 1080 Tunis Cédex - Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">(+216) 71 340 733</field>
+        <field name="email">reclamation@biat.com.tn</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_bna" model="res.bank">
+        <field name="name">Banque Nationale Agricole (BNA)</field>
+        <field name="bic">BNTETNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">Rue Hedi Nouira 1001 Tunis - Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">(+216) 71 831 000 / (+216) 71 831 200</field>
+        <field name="email">bna@bna.com.tn</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_bts" model="res.bank">
+        <field name="name">Banque Tunisienne de Solidarité (BTS)</field>
+        <field name="bic">TUSOTNT1</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">56, Avenue Mohamed V 1002 Tunis</field>
+        <field name="zip"></field>
+        <field name="phone">(+216) 71 844 040</field>
+        <field name="email">BTS@Email.ati.tn</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_btk" model="res.bank">
+        <field name="name">Banque Tuniso-Koweitienne (BTK)</field>
+        <field name="bic">BTKOTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">10 bis Avenue Mohamed V ? 1001 Tunis</field>
+        <field name="zip"></field>
+        <field name="phone">+216 71 340 000</field>
+        <field name="email">contact@btknet.com</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_btl" model="res.bank">
+        <field name="name">Banque Tuniso-Libyenne (BTL)</field>
+        <field name="bic">ATLDTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">25, Avenue Khereddine Pacha 1002 Tunis BP 150 Montplaisir 1073 TUNIS</field>
+        <field name="zip"></field>
+        <field name="phone">+216 71 901 350</field>
+        <field name="email">Banque.Tuniso-libyenne@btl.tn</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_zitouna" model="res.bank">
+        <field name="bic">BZITTNTT</field>
+        <field name="name">Banque Zitouna (Zitouna)</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">2. Boulevard qualité de la vie 2015 le Kram - Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">+216 81 10 55 55</field>
+        <field name="email">contact@banquezitouna.com</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_citi bank" model="res.bank">
+        <field name="name">Citi-Bank Tunis Branch onshore (Citi Bank)</field>
+        <field name="bic">CITITNTX</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">55, Avenue Jughurta BP 72 1002 Tunis</field>
+        <field name="zip"></field>
+        <field name="phone">(+216) 71 790 066</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_naib" model="res.bank">
+        <field name="name">North Africa International Bank (NAIB)</field>
+        <field name="bic">NOAFTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">Avenue Kheireddine Pacha Ennassim Montplaisir, 1002 TUNIS</field>
+        <field name="zip"></field>
+        <field name="phone">+216 71 950 800</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_qnb" model="res.bank">
+        <field name="name">Qatar National Bank (QNB)</field>
+        <field name="bic">BTQITNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">Rue de la cité des sciences - B.P. 320 - 1080 Tunis Cedex</field>
+        <field name="zip"></field>
+        <field name="phone">+216 71 750 000</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_stb" model="res.bank">
+        <field name="name">Société Tunisienne de Banque (STB)</field>
+        <field name="bic">STBKTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">Rue Hédi Nouira - 1001 Tunis - Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">(+216) 71 340 477</field>
+        <field name="email">stb@stb.com.tn</field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_stusid" model="res.bank">
+        <field name="name">Stusid Bank (Stusid)</field>
+        <field name="bic">TSIDTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">32, Rue hédi Karray - cité Mahragène 1082 Tunis - P.O Box 20 - 1002 Tunis</field>
+        <field name="zip"></field>
+        <field name="phone">+216 71 718 233</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_ubci" model="res.bank">
+        <field name="name">Union Bancaire Commerce et Industrie (UBCI)</field>
+        <field name="bic">UBCITNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">139, Av. de la liberté 1002 - Tunis - Belvédère</field>
+        <field name="zip"></field>
+        <field name="phone">(+216) 81 100 000</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+    <record id="res_bank_uib" model="res.bank">
+        <field name="name">Union Internationale de Banques (UIB)</field>
+        <field name="bic">UIBKTNTT</field>
+        <field name="country" ref="base.tn" />
+        <field name="city">Tunis</field>
+        <field name="street">65, Av. Habib Bourguiba TUNIS CP : 1002 - Tunisie</field>
+        <field name="zip"></field>
+        <field name="phone">71108500</field>
+        <field name="email"></field>
+        <field name="active" eval="1" />
+    </record>
+</odoo>
