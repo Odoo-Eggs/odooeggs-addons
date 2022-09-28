@@ -6,8 +6,7 @@
     'version': '12.0.1.0.0',
     'license': '',
     'category': 'Localization',
-    'author': 'Ahmed Foudhaili, '
-              'Odoo-Eggs',
+    'author': 'Odoo_Eggs',
     'website': 'https://github.com/Odoo-Eggs/odooeggs-addons',
     'depends': [
         'account'

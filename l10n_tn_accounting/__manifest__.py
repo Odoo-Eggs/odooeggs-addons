@@ -11,7 +11,7 @@
     'website': 'https://github.com/Odoo-Eggs/odooeggs-addons',
     'depends': [
         'account',
-        'l10_tn',
+        #'l10_tn',
         'l10_tn_bank'
     ],
     'data': [
