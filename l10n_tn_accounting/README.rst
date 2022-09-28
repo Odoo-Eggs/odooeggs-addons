@@ -22,8 +22,10 @@ Tunisian Accounting
 The aim of this project is a better integration of Odoo with Tunisian legislation and business practices.
 
 .. image:: https://raw.githubusercontent.com/Odoo-Eggs/odooeggs-addons/12.0/l10n_tn_accounting/static/description/tn_chart.png
+  :width: 600
 
 .. image:: https://raw.githubusercontent.com/Odoo-Eggs/odooeggs-addons/12.0/l10n_tn_accounting/static/description/tn_taxes.png
+  :width: 600
 
 **Table of contents**
 
