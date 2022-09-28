@@ -15,4 +15,6 @@
         'data/account_bank_data.xml',
     ],
     'installable': True,
+    'application': False,
+    'auto_install': False
 }
