@@ -6,7 +6,7 @@
     'version': '12.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Localization',
-    'author': 'Odoo_Eggs',
+    'author': 'Odoo-Eggs',
     'website': 'https://github.com/Odoo-Eggs/odooeggs-addons',
     'depends': [
         'account'
