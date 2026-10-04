@@ -32,7 +32,7 @@ tax report, payment terms.</p>
 <li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">One fiscal stamp / stamp duty per invoice, whatever the number of lines and quantities.</p></li>
 <li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">Works for customer invoices and vendor bills, and optionally for credit notes.</p></li>
 <li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">Added on every invoice: created from the form, from a sales order, by import or by code.</p></li>
-<li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">Exemption through fiscal positions (map the stamp tax to nothing).</p></li>
+<li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">Exemption through fiscal positions (replace the stamp by a tax of 0).</p></li>
 <li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">VAT base not affected; amount kept in the company currency on foreign currency invoices.</p></li>
 <li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">Standard accounting: dedicated tax line on the tax account, tax group in the invoice totals.</p></li>
 </ul>
@@ -61,8 +61,8 @@ per invoice (e.g. “1DT Tax stamp” with the Tunisian chart of accounts).</p><
 The option is only available for taxes computed as <em>Fixed</em>.</p></li>
 <li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">Optionally check <strong>Also on credit notes</strong>.</p></li>
 <li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">Remove this tax from your products: it is now added to the invoice itself.</p></li>
-<li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">To exempt some customers or vendors, create a fiscal position that maps the
-tax to no tax, and set it on their contact.</p></li>
+<li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">To exempt some customers or vendors, create a fixed tax of 0 that replaces
+the stamp (<em>Replaces</em> field) for their fiscal position.</p></li>
 </ol>
 </div>
 <div class="section" id="usage">
@@ -87,6 +87,13 @@ lines; a document-level tax is not exported as a line.</p></li>
 <div class="section" id="changelog">
 <h2 style="margin-bottom:0.5em; clear:both; margin-top:0.8em">Changelog</h2>
 <div class="section" id="id1">
+<h3 style="margin-bottom:0.5em; clear:both; margin-top:1em">19.0.1.0.0</h3>
+<ul class="simple" style="margin-top:0.5em; margin-bottom:0.5em">
+<li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">Port to Odoo 19. Exemption now uses the Odoo 19 fiscal positions: a tax of 0
+replacing the stamp.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
 <h3 style="margin-bottom:0.5em; clear:both; margin-top:1em">18.0.1.0.0</h3>
 <ul class="simple" style="margin-top:0.5em; margin-bottom:0.5em">
 <li style="margin-top:0; margin-bottom:0"><p style="margin-top:0; margin-bottom:0">First release for Odoo 18: complete rewrite, free and open source (LGPL-3).</p></li>

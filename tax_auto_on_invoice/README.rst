@@ -23,7 +23,7 @@ Fiscal Stamp per Invoice
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-Odoo-Eggs%2Fodooeggs--addons-lightgray.png?logo=github
-    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/18.0/tax_auto_on_invoice
+    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/tax_auto_on_invoice
     :alt: Odoo-Eggs/odooeggs-addons
 
 |badge1| |badge2| |badge3| 
@@ -45,7 +45,7 @@ Highlights
 - One fiscal stamp / stamp duty per invoice, whatever the number of lines and quantities.
 - Works for customer invoices and vendor bills, and optionally for credit notes.
 - Added on every invoice: created from the form, from a sales order, by import or by code.
-- Exemption through fiscal positions (map the stamp tax to nothing).
+- Exemption through fiscal positions (replace the stamp by a tax of 0).
 - VAT base not affected; amount kept in the company currency on foreign currency invoices.
 - Standard accounting: dedicated tax line on the tax account, tax group in the invoice totals.
 
@@ -76,8 +76,8 @@ Configuration
    The option is only available for taxes computed as *Fixed*.
 #. Optionally check **Also on credit notes**.
 #. Remove this tax from your products: it is now added to the invoice itself.
-#. To exempt some customers or vendors, create a fiscal position that maps the
-   tax to no tax, and set it on their contact.
+#. To exempt some customers or vendors, create a fixed tax of 0 that replaces
+   the stamp (*Replaces* field) for their fiscal position.
 
 Usage
 =====
@@ -98,6 +98,12 @@ Known issues / Roadmap
 
 Changelog
 =========
+
+19.0.1.0.0
+~~~~~~~~~~
+
+* Port to Odoo 19. Exemption now uses the Odoo 19 fiscal positions: a tax of 0
+  replacing the stamp.
 
 18.0.1.0.0
 ~~~~~~~~~~
@@ -122,7 +128,7 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/18.0/tax_auto_on_invoice>`_ project on GitHub.
+This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/tax_auto_on_invoice>`_ project on GitHub.
 
 
 You are welcome to contribute.

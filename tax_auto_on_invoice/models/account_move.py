@@ -32,7 +32,9 @@ class AccountMove(models.Model):
         ]
         if self.move_type in ("out_refund", "in_refund"):
             domain.append(("auto_tax_on_refund", "=", True))
-        return self.fiscal_position_id.map_tax(AccountTax.search(domain))
+        taxes = self.fiscal_position_id.map_tax(AccountTax.search(domain))
+        # Exemption: the fiscal position replaces the tax by a fixed tax of 0.
+        return taxes.filtered(lambda tax: tax.amount_type != "fixed" or tax.amount)
 
     def _prepare_auto_tax_base_line_for_taxes_computation(self, taxes):
         """Single base line carrying the per-invoice taxes.
@@ -53,7 +55,6 @@ class AccountMove(models.Model):
             sign=self.direction_sign,
             special_type="auto_tax",
             is_refund=self.move_type in ("out_refund", "in_refund"),
-            tax_tag_invert=self.is_inbound(),
             partner_id=self.commercial_partner_id,
             account_id=self._get_auto_tax_product_lines()[:1].account_id,
         )

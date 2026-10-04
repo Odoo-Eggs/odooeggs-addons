@@ -82,10 +82,16 @@ class TestTaxAutoOnInvoice(AccountTestInvoicingCommon):
         self._assert_stamp(refund, 1.0)
 
     def test_fiscal_position_exemption(self):
-        exempt = self.env["account.fiscal.position"].create(
+        # Since 19.0, a fiscal position replaces a tax by another one: the
+        # exemption is a fixed tax of 0 replacing the stamp.
+        exempt = self.env["account.fiscal.position"].create({"name": "Stamp exempt"})
+        self.stamp_sale.copy(
             {
-                "name": "Stamp exempt",
-                "tax_ids": [Command.create({"tax_src_id": self.stamp_sale.id})],
+                "name": "Stamp exempted",
+                "amount": 0.0,
+                "auto_tax": False,
+                "fiscal_position_ids": [Command.set(exempt.ids)],
+                "original_tax_ids": [Command.set(self.stamp_sale.ids)],
             }
         )
         invoice = self._invoice(fiscal_position_id=exempt.id)

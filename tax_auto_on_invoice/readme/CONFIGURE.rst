@@ -4,5 +4,5 @@
    The option is only available for taxes computed as *Fixed*.
 #. Optionally check **Also on credit notes**.
 #. Remove this tax from your products: it is now added to the invoice itself.
-#. To exempt some customers or vendors, create a fiscal position that maps the
-   tax to no tax, and set it on their contact.
+#. To exempt some customers or vendors, create a fixed tax of 0 that replaces
+   the stamp (*Replaces* field) for their fiscal position.

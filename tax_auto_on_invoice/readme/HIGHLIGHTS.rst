@@ -1,6 +1,6 @@
 - One fiscal stamp / stamp duty per invoice, whatever the number of lines and quantities.
 - Works for customer invoices and vendor bills, and optionally for credit notes.
 - Added on every invoice: created from the form, from a sales order, by import or by code.
-- Exemption through fiscal positions (map the stamp tax to nothing).
+- Exemption through fiscal positions (replace the stamp by a tax of 0).
 - VAT base not affected; amount kept in the company currency on foreign currency invoices.
 - Standard accounting: dedicated tax line on the tax account, tax group in the invoice totals.
