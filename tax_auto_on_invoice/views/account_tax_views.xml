@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tax_form" model="ir.ui.view">
+        <field name="name">account.tax.form.tax_auto_on_invoice</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <group name="advanced_booleans" position="inside">
+                <field name="auto_tax" invisible="amount_type != 'fixed'"/>
+                <field name="auto_tax_on_refund" invisible="not auto_tax"/>
+            </group>
+        </field>
+    </record>
+</odoo>
