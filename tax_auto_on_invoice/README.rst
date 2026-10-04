@@ -23,7 +23,7 @@ Fiscal Stamp per Invoice
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-Odoo-Eggs%2Fodooeggs--addons-lightgray.png?logo=github
-    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/tax_auto_on_invoice
+    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/20.0/tax_auto_on_invoice
     :alt: Odoo-Eggs/odooeggs-addons
 
 |badge1| |badge2| |badge3| 
@@ -76,8 +76,10 @@ Configuration
    The option is only available for taxes computed as *Fixed*.
 #. Optionally check **Also on credit notes**.
 #. Remove this tax from your products: it is now added to the invoice itself.
-#. To exempt some customers or vendors, create a fixed tax of 0 that replaces
-   the stamp (*Replaces* field) for their fiscal position.
+#. To exempt some customers or vendors: link the stamp tax to the fiscal
+   positions where it applies (e.g. "Domestic market" with the Tunisian chart),
+   or create a fixed tax of 0 that replaces the stamp (*Replaces* field) for
+   their fiscal position.
 
 Usage
 =====
@@ -98,6 +100,11 @@ Known issues / Roadmap
 
 Changelog
 =========
+
+20.0.1.0.0
+~~~~~~~~~~
+
+* Port to Odoo 20.
 
 19.0.1.0.0
 ~~~~~~~~~~
@@ -128,7 +135,7 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/tax_auto_on_invoice>`_ project on GitHub.
+This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/20.0/tax_auto_on_invoice>`_ project on GitHub.
 
 
 You are welcome to contribute.
