@@ -4,7 +4,7 @@
     "name": "Tunisia - Fiscal Stamp",
     "summary": "Tunisian fiscal stamp (droit de timbre): once per invoice, "
     "right account, tax report line, exemptions",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Accounting/Localizations",
     "website": "https://github.com/Odoo-Eggs/odooeggs-addons",
     "author": "Odoo-Eggs",

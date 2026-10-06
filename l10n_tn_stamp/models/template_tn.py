@@ -20,30 +20,19 @@ class AccountChartTemplate(models.AbstractModel):
         # l10n_tn names the group "Fiscal Timbre" in English
         return self._parse_csv("tn", "account.tax.group", module="l10n_tn_stamp")
 
+    @template("tn", "account.fiscal.position")
+    def _get_tn_stamp_account_fiscal_position(self):
+        return self._parse_csv("tn", "account.fiscal.position", module="l10n_tn_stamp")
+
     @template("tn", "account.tax")
     def _get_tn_stamp_account_tax(self):
         # Template values are merged field by field: only the per-invoice
         # options and the sale distribution of the l10n_tn stamps change.
+        # Since 19.0 the exemptions are replacement taxes (stamp of 0) linked to
+        # the export and public sector fiscal positions.
         tax_data = self._parse_csv("tn", "account.tax", module="l10n_tn_stamp")
         self._deref_account_tags("tn", tax_data)
         return tax_data
-
-    def _get_tn_stamp_fiscal_positions(self):
-        return self._parse_csv("tn", "account.fiscal.position", module="l10n_tn_stamp")
-
-    def _get_chart_template_data(self, template_code):
-        # The fiscal position mappings are added after the merge: a template
-        # function returning "tax_ids" would replace the mappings of l10n_tn
-        # and of the other modules (l10n_tn_fodec) instead of adding to them.
-        data = super()._get_chart_template_data(template_code)
-        if template_code == "tn":
-            positions = data["account.fiscal.position"]
-            for xmlid, values in self._get_tn_stamp_fiscal_positions().items():
-                if xmlid in positions:
-                    positions[xmlid].setdefault("tax_ids", []).extend(values["tax_ids"])
-                else:
-                    positions[xmlid] = values
-        return data
 
     def _l10n_tn_stamp_load(self):
         """Configure the stamp on a company that already has the chart.
@@ -74,30 +63,29 @@ class AccountChartTemplate(models.AbstractModel):
         if stamp_sale:
             account = self.ref("l10n_tn_4371", raise_if_not_found=False)
             mapper = self._get_tag_mapper(company.account_fiscal_country_id.id)
-            for line in stamp_sale.repartition_line_ids.filtered(
+            values = {"tag_ids": [Command.set(mapper("stamp_sale_due"))]}
+            if account:
+                values["account_id"] = account.id
+            stamp_sale.repartition_line_ids.filtered(
                 lambda line: line.repartition_type == "tax"
-            ):
-                sign = "+" if line.document_type == "invoice" else "-"
-                values = {"tag_ids": [Command.set(mapper(sign + "stamp_sale_due"))]}
-                if account:
-                    values["account_id"] = account.id
-                line.write(values)
+            ).write(values)
 
-        positions = {}
-        for xmlid, values in self._get_tn_stamp_fiscal_positions().items():
-            position = self.ref(xmlid, raise_if_not_found=False)
-            if not position:
-                positions[xmlid] = values
-                continue
-            new = [
-                command
-                for command in values["tax_ids"]
-                if self.ref(command[2]["tax_src_id"]) not in position.tax_ids.tax_src_id
-            ]
-            if new:
-                positions[xmlid] = {"tax_ids": new}
-        if positions:
-            self._load_data({"account.fiscal.position": positions})
+        # Public sector position and stamps of 0 (exemptions), if missing.
+        new_taxes = {
+            xmlid: values
+            for xmlid, values in self._get_tn_stamp_account_tax().items()
+            if xmlid not in (STAMP_SALE, STAMP_PURCHASE)
+            and not self.ref(xmlid, raise_if_not_found=False)
+        }
+        new_positions = {
+            xmlid: values
+            for xmlid, values in self._get_tn_stamp_account_fiscal_position().items()
+            if not self.ref(xmlid, raise_if_not_found=False)
+        }
+        if new_taxes or new_positions:
+            self._load_data(
+                {"account.fiscal.position": new_positions, "account.tax": new_taxes}
+            )
 
         # A stamp left in the taxes of a product would be added once per line
         # on top of the stamp added once per invoice.

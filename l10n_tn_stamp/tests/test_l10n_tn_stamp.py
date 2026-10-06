@@ -58,7 +58,7 @@ class TestL10nTnStamp(AccountTestInvoicingCommon):
         )
         self.assertEqual(sale_lines.account_id, self.account_4371)
         self.assertEqual(
-            sorted(sale_lines.tag_ids.mapped("name")), ["+stamp_sale_due", "-stamp_sale_due"]
+            sale_lines.tag_ids.mapped("name"), ["stamp_sale_due"]
         )
         self.assertEqual(
             self.stamp_sale.tax_group_id.with_context(lang="en_US").name, "Fiscal Stamp"
@@ -76,7 +76,7 @@ class TestL10nTnStamp(AccountTestInvoicingCommon):
         self.assertEqual(stamp.tax_line_id, self.stamp_sale)
         self.assertEqual(stamp.account_id, self.account_4371)
         self.assertAlmostEqual(stamp.balance, -1.0)
-        self.assertEqual(stamp.tax_tag_ids.mapped("name"), ["+stamp_sale_due"])
+        self.assertEqual(stamp.tax_tag_ids.mapped("name"), ["stamp_sale_due"])
         self.assertAlmostEqual(move.amount_untaxed, 1500.0)
         self.assertAlmostEqual(move.amount_total, 1500.0 + 285.0 + 1.0)
 
@@ -166,9 +166,17 @@ class TestL10nTnStamp(AccountTestInvoicingCommon):
         self.stamp_sale.repartition_line_ids.filtered(
             lambda line: line.repartition_type == "tax"
         ).write({"account_id": account_437.id, "tag_ids": [Command.clear()]})
-        self.fp_export.tax_ids.filtered(
-            lambda line: line.tax_src_id in (self.stamp_sale | self.stamp_purchase)
+        exempt = self.chart.ref("l10n_tn_stamp_tax_sale_exempt") | self.chart.ref(
+            "l10n_tn_stamp_tax_purchase_exempt"
+        )
+        self.env["ir.model.data"].search(
+            [
+                "|",
+                "&", ("model", "=", "account.tax"), ("res_id", "in", exempt.ids),
+                "&", ("model", "=", "account.fiscal.position"), ("res_id", "=", self.fp_public.id),
+            ]
         ).unlink()
+        exempt.unlink()
         self.fp_public.unlink()
         product = self._create_product(
             name="Stamped", taxes_id=self.vat_sale | self.stamp_sale
@@ -180,12 +188,16 @@ class TestL10nTnStamp(AccountTestInvoicingCommon):
         # the product may also carry taxes of other companies: read them as superuser
         self.assertNotIn(self.stamp_sale, product.sudo().taxes_id)
         self.assertIn(self.vat_sale, product.sudo().taxes_id)
+        # since 19.0 the exemptions are stamps of 0 replacing the stamps
+        exempt_sale = self.chart.ref("l10n_tn_stamp_tax_sale_exempt")
+        exempt_purchase = self.chart.ref("l10n_tn_stamp_tax_purchase_exempt")
         self.assertEqual(
             self.fp_export.map_tax(self.stamp_sale | self.stamp_purchase),
-            self.env["account.tax"],
+            exempt_sale | exempt_purchase,
         )
         fp_public = self.chart.ref("l10n_tn_stamp_fp_public")
-        self.assertEqual(fp_public.map_tax(self.stamp_sale), self.env["account.tax"])
+        self.assertEqual(fp_public.map_tax(self.stamp_sale), exempt_sale)
+        self.assertEqual(fp_public.map_tax(self.vat_sale), self.vat_sale)
 
         mappings = self.fp_export.tax_ids
         # hooks run as superuser at install
@@ -204,8 +216,8 @@ class TestL10nTnStamp(AccountTestInvoicingCommon):
         self.assertEqual(line.report_id, self.env.ref("l10n_tn.tax_report"))
         move = self._sale_invoice()
         tag = self._stamp_lines(move).tax_tag_ids
-        self.assertEqual(tag.name, "+stamp_sale_due")
-        self.assertEqual(line.expression_ids.formula, "stamp_sale_due")
+        self.assertEqual(tag.name, "stamp_sale_due")
+        self.assertEqual(line.expression_ids.formula, "-stamp_sale_due")
 
     def test_with_fodec(self):
         """With l10n_tn_fodec: both modules add their mappings to the export
@@ -214,7 +226,10 @@ class TestL10nTnStamp(AccountTestInvoicingCommon):
         if not fodec:
             self.skipTest("l10n_tn_fodec is not installed")
         self.assertEqual(
-            self.fp_export.map_tax(fodec | self.stamp_sale | self.vat_sale), self.vat_sale_0
+            self.fp_export.map_tax(fodec | self.stamp_sale | self.vat_sale),
+            self.chart.ref("l10n_tn_fodec_tax_sale_export")
+            | self.chart.ref("l10n_tn_stamp_tax_sale_exempt")
+            | self.vat_sale_0,
         )
         product = self._create_product(name="Paint", taxes_id=fodec | self.vat_sale)
         move = self._create_invoice(
