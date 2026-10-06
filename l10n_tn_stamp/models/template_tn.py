@@ -10,6 +10,9 @@ _logger = logging.getLogger(__name__)
 
 STAMP_SALE = "l10n_tn_tax_vat_sale_tax_stamp"
 STAMP_PURCHASE = "l10n_tn_tax_vat_purchase_tax_stamp"
+DOMESTIC = "l10n_tn_fp_template_domestic"
+EXEMPTION = "fiscal_position_template_exo"
+PUBLIC = "l10n_tn_stamp_fp_public"
 
 
 class AccountChartTemplate(models.AbstractModel):
@@ -33,6 +36,48 @@ class AccountChartTemplate(models.AbstractModel):
         tax_data = self._parse_csv("tn", "account.tax", module="l10n_tn_stamp")
         self._deref_account_tags("tn", tax_data)
         return tax_data
+
+    def _get_chart_template_data(self, template_code, demo=False, module=None):
+        # Since 20.0 a tax that is not replaced is kept only under the fiscal
+        # positions it is linked to. The domestic taxes of l10n_tn (VAT...) are
+        # linked to the domestic position only: link them to the public sector
+        # position too (except the sale stamp, replaced there by a stamp of 0),
+        # and keep the stamps under the VAT exemption position.
+        data = super()._get_chart_template_data(template_code, demo, module)
+        if template_code == "tn":
+            for xmlid, values in data["account.tax"].items():
+                positions = [p for p in (values.get("fiscal_position_ids") or "").split(",") if p]
+                if xmlid in (STAMP_SALE, STAMP_PURCHASE) and EXEMPTION not in positions:
+                    positions.append(EXEMPTION)
+                if DOMESTIC in positions and xmlid != STAMP_SALE and PUBLIC not in positions:
+                    positions.append(PUBLIC)
+                if positions:
+                    values["fiscal_position_ids"] = ",".join(positions)
+        return data
+
+    def _l10n_tn_stamp_link_positions(self):
+        """Same links as _get_chart_template_data, on an existing company."""
+        domestic, exemption, public = (
+            self.ref(xmlid, raise_if_not_found=False) for xmlid in (DOMESTIC, EXEMPTION, PUBLIC)
+        )
+        no_tax = self.env["account.tax"]
+        stamp_sale = self.ref(STAMP_SALE, raise_if_not_found=False) or no_tax
+        stamps = stamp_sale | (self.ref(STAMP_PURCHASE, raise_if_not_found=False) or no_tax)
+        if exemption:
+            stamps.filtered(lambda tax: exemption not in tax.fiscal_position_ids).write(
+                {"fiscal_position_ids": [Command.link(exemption.id)]}
+            )
+        if domestic and public:
+            taxes = self.env["account.tax"].search(
+                [
+                    *self.env["account.tax"]._check_company_domain(self.env.company),
+                    ("fiscal_position_ids", "in", domestic.ids),
+                    ("id", "!=", stamp_sale.id),
+                ]
+            )
+            taxes.filtered(lambda tax: public not in tax.fiscal_position_ids).write(
+                {"fiscal_position_ids": [Command.link(public.id)]}
+            )
 
     def _l10n_tn_stamp_load(self):
         """Configure the stamp on a company that already has the chart.
@@ -86,6 +131,8 @@ class AccountChartTemplate(models.AbstractModel):
             self._load_data(
                 {"account.fiscal.position": new_positions, "account.tax": new_taxes}
             )
+
+        self._l10n_tn_stamp_link_positions()
 
         # A stamp left in the taxes of a product would be added once per line
         # on top of the stamp added once per invoice.
