@@ -1,4 +1,0 @@
-"id","name","auto_apply","country_id","tax_ids/tax_src_id","tax_ids/tax_dest_id","name@fr"
-"l10n_tn_fp_template_export","","","","l10n_tn_tax_vat_sale_tax_stamp","",""
-"","","","","l10n_tn_tax_vat_purchase_tax_stamp","",""
-"l10n_tn_stamp_fp_public","Public sector (stamp exempt)","False","base.tn","l10n_tn_tax_vat_sale_tax_stamp","","Secteur public (exonéré du timbre)"

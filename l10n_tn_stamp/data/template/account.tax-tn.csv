@@ -1,6 +1,0 @@
-"id","auto_tax","auto_tax_on_refund","repartition_line_ids/repartition_type","repartition_line_ids/document_type","repartition_line_ids/tag_ids","repartition_line_ids/account_id"
-"l10n_tn_tax_vat_sale_tax_stamp","True","False","base","invoice","",""
-"","","","tax","invoice","+stamp_sale_due","l10n_tn_4371"
-"","","","base","refund","",""
-"","","","tax","refund","-stamp_sale_due","l10n_tn_4371"
-"l10n_tn_tax_vat_purchase_tax_stamp","True","False","","","",""

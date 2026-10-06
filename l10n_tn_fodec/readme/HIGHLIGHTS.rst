@@ -1,7 +1,0 @@
-- **FODEC 1% sales tax**: computed before the VAT, posted on account 436780.
-- **VAT on price + FODEC**: the VAT base includes the FODEC (VAT code, art. 6).
-- **Vendor bills**: FODEC as a cost, deductible VAT on the right base.
-- **Export exemption**: the Export fiscal position removes the FODEC.
-- **Tax report line**: turnover subject to FODEC and FODEC due.
-- **Existing companies**: taxes added at install, no new chart to load.
-- **Works with the fiscal stamp**: compatible with Fiscal Stamp per Invoice.

@@ -1,7 +1,0 @@
-- **Once per invoice**: one 1.000 TND stamp per invoice, whatever the lines.
-- **Right account**: sale stamp on 4371 (stamp duty collected), not 437.
-- **Tax report line**: the stamp collected is tagged for the tax report.
-- **Exemptions**: export, and a public sector fiscal position.
-- **Vendor bills too**: the supplier's stamp on the expense account 6654.
-- **Existing companies**: configured at install, products cleaned up.
-- **Legal mention**: optional « Droit de timbre payé sur déclaration ».
