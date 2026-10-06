@@ -4,7 +4,7 @@
     "name": "Tunisia - FODEC Tax",
     "summary": "Tunisian FODEC tax (1%) on sales, with VAT computed on the "
     "price plus FODEC",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Accounting/Localizations",
     "website": "https://github.com/Odoo-Eggs/odooeggs-addons",
     "author": "Odoo-Eggs",
