@@ -144,6 +144,11 @@ class TestL10nTnStamp(AccountTestInvoicingCommon):
         self.assertNotIn(mention, export.taxes_legal_notes or "")
         settings = self.env["res.config.settings"].create({})
         self.assertTrue(settings.l10n_tn_stamp_invoice_mention)
+        # the settings form opens through an onchange on a new record
+        values = self.env["res.config.settings"].onchange(
+            {}, [], {"company_id": {}, "l10n_tn_stamp_invoice_mention": {}}
+        )["value"]
+        self.assertTrue(values["l10n_tn_stamp_invoice_mention"])
         settings.l10n_tn_stamp_invoice_mention = False
         settings.execute()
         self.assertFalse(self.stamp_sale.invoice_legal_notes)

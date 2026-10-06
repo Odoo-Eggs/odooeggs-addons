@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 from markupsafe import Markup
 
-from odoo import fields, models
+from odoo import api, fields, models
 from odoo.tools import is_html_empty
 
 # CDET art. 127 (Finance Law for 2004, art. 95): wording of the law, in French.
@@ -29,7 +29,10 @@ class ResConfigSettings(models.TransientModel):
             .ref("l10n_tn_tax_vat_sale_tax_stamp", raise_if_not_found=False)
         )
 
+    @api.depends("company_id")
     def _compute_l10n_tn_stamp_invoice_mention(self):
+        # depends on the company: the settings form is a new record, filled by an
+        # onchange where company_id is set after the first computation
         for config in self:
             tax = config._l10n_tn_stamp_sale_tax()
             config.l10n_tn_stamp_invoice_mention = bool(

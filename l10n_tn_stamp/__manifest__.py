@@ -16,6 +16,13 @@
         "data/tax_report.xml",
         "views/res_config_settings_views.xml",
     ],
+    "images": [
+        "static/description/banner.gif",
+        "static/description/images/screenshot/invoice_stamp_once.png",
+        "static/description/images/screenshot/journal_items.png",
+        "static/description/images/screenshot/public_sector.png",
+        "static/description/images/screenshot/settings_mention.png",
+    ],
     "post_init_hook": "_l10n_tn_stamp_post_init",
     "installable": True,
 }
