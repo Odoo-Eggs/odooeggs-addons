@@ -23,7 +23,7 @@ class AccountMove(models.Model):
         domain = [
             ("auto_tax", "=", True),
             ("type_tax_use", "=", "sale" if self.is_sale_document() else "purchase"),
-            *AccountTax._check_company_domain(self.company_id),
+            ("company_id", "=", self.company_id.id),
         ]
         if self.move_type in ("out_refund", "in_refund"):
             domain.append(("auto_tax_on_refund", "=", True))

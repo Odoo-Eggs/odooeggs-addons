@@ -6,8 +6,8 @@
         <field name="inherit_id" ref="account.view_tax_form"/>
         <field name="arch" type="xml">
             <group name="advanced_booleans" position="inside">
-                <field name="auto_tax" invisible="amount_type != 'fixed'"/>
-                <field name="auto_tax_on_refund" invisible="not auto_tax"/>
+                <field name="auto_tax" attrs="{'invisible': [('amount_type', '!=', 'fixed')]}"/>
+                <field name="auto_tax_on_refund" attrs="{'invisible': [('auto_tax', '=', False)]}"/>
             </group>
         </field>
     </record>

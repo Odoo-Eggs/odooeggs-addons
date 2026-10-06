@@ -4,7 +4,7 @@
     "name": "Fiscal Stamp per Invoice",
     "summary": "Add a fixed tax (fiscal stamp, stamp duty) once per invoice, "
     "not once per line",
-    "version": "17.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Accounting/Accounting",
     "website": "https://github.com/Odoo-Eggs/odooeggs-addons",
     "author": "Odoo-Eggs",

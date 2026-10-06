@@ -64,7 +64,8 @@ class AccountMoveLine(models.Model):
                         "account_id": tax["account_id"] or line.account_id.id,
                         "currency_id": line.currency_id.id,
                         "analytic_distribution": (
-                            tax["analytic"] or not tax["use_in_tax_closing"]
+                            (tax["analytic"] or not tax["use_in_tax_closing"])
+                            and move.state == "draft"
                         )
                         and line.analytic_distribution,
                         "tax_ids": [(6, 0, tax["tax_ids"])],

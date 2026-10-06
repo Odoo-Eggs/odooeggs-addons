@@ -37,12 +37,24 @@ class TestTaxAutoOnInvoice(AccountTestInvoicingCommon):
             }
         )
 
+    def _create_move(self, move_type="out_invoice", lines=None, **kwargs):
+        # 16.0 has no _create_invoice / _prepare_invoice_line helpers
+        return self.env["account.move"].create(
+            {
+                "move_type": move_type,
+                "partner_id": self.partner_a.id,
+                "invoice_date": kwargs.pop("invoice_date", "2019-01-01"),
+                "invoice_line_ids": [Command.create(line) for line in (lines or [])],
+                **kwargs,
+            }
+        )
+
     def _invoice(self, move_type="out_invoice", quantities=(3, 5), **kwargs):
         tax = self.tax_sale_a if move_type.startswith("out_") else self.tax_purchase_a
-        return self._create_invoice(
-            move_type=move_type,
-            invoice_line_ids=[
-                self._prepare_invoice_line(price_unit=100.0, quantity=qty, tax_ids=tax)
+        return self._create_move(
+            move_type,
+            [
+                {"name": "line", "price_unit": 100.0, "quantity": qty, "tax_ids": [Command.set(tax.ids)]}
                 for qty in quantities
             ],
             **kwargs,
@@ -99,7 +111,7 @@ class TestTaxAutoOnInvoice(AccountTestInvoicingCommon):
         invoice = self._invoice()
         invoice.invoice_line_ids = [Command.clear()]
         self.assertFalse(invoice.line_ids)
-        empty = self._create_invoice(invoice_line_ids=[])
+        empty = self._create_move()
         self.assertFalse(empty.line_ids)
 
     def test_lines_change(self):
@@ -112,19 +124,19 @@ class TestTaxAutoOnInvoice(AccountTestInvoicingCommon):
         self.assertAlmostEqual(invoice.amount_total, 100.0 + 15.0 + 200.0 + 1.0)
 
     def test_foreign_currency(self):
-        currency = self.setup_other_currency("EUR")  # 2 EUR = 1 company currency in 2017
+        currency = self.currency_data["currency"]  # 2 units = 1 company currency in 2017
         invoice = self._invoice(currency_id=currency.id, invoice_date="2017-06-01")
         self._assert_stamp(invoice, -1.0, amount_currency=-2.0)
 
     def test_form(self):
-        with Form(self.env["account.move"].with_context(default_move_type="out_invoice")) as move_form:
-            move_form.partner_id = self.partner_a
-            move_form.invoice_date = "2019-01-01"
-            for qty in (2, 7):
-                with move_form.invoice_line_ids.new() as line_form:
-                    line_form.product_id = self.product_a
-                    line_form.quantity = qty
-        invoice = move_form.record
+        move_form = Form(self.env["account.move"].with_context(default_move_type="out_invoice"))
+        move_form.partner_id = self.partner_a
+        move_form.invoice_date = "2019-01-01"
+        for qty in (2, 7):
+            with move_form.invoice_line_ids.new() as line_form:
+                line_form.product_id = self.product_a
+                line_form.quantity = qty
+        invoice = move_form.save()
         self._assert_stamp(invoice, -1.0)
 
     def test_other_company(self):
