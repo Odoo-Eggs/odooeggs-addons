@@ -1,0 +1,1 @@
+- `Fiscal Stamp per Invoice <apps:tax_auto_on_invoice>`_: the Tunisian 1 DT fiscal stamp, once per invoice.
