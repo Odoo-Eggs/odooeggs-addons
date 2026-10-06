@@ -23,7 +23,7 @@ Fiscal Stamp per Invoice
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-Odoo-Eggs%2Fodooeggs--addons-lightgray.png?logo=github
-    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/18.0/tax_auto_on_invoice
+    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/17.0/tax_auto_on_invoice
     :alt: Odoo-Eggs/odooeggs-addons
 
 |badge1| |badge2| |badge3| 
@@ -60,7 +60,8 @@ Screenshots
 .. figure:: images/screenshot/stamp_tax_config.png
    :alt: Tax configuration
 
-   Check "Add once per invoice" on a fixed tax (here the Tunisian "1DT Tax stamp").
+   (1) Check "Add once per invoice" on a fixed tax (here the Tunisian "1DT Tax stamp");
+   (2) optionally, also on credit notes.
 
 .. figure:: images/screenshot/journal_items.png
    :alt: Journal items
@@ -99,6 +100,12 @@ Known issues / Roadmap
 Changelog
 =========
 
+17.0.1.0.0
+~~~~~~~~~~
+
+* First release for Odoo 17: same features as the 18.0 version, adapted to the
+  Odoo 17 tax engine.
+
 18.0.1.0.0
 ~~~~~~~~~~
 
@@ -122,7 +129,7 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/18.0/tax_auto_on_invoice>`_ project on GitHub.
+This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/17.0/tax_auto_on_invoice>`_ project on GitHub.
 
 
 You are welcome to contribute.

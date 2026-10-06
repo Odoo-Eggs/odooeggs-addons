@@ -29,14 +29,3 @@ class AccountTax(models.Model):
                         tax.name,
                     )
                 )
-
-    @api.model
-    def _prepare_tax_lines(self, base_lines, company, tax_lines=None):
-        # The per-invoice base line is not a journal item: nothing to update.
-        res = super()._prepare_tax_lines(base_lines, company, tax_lines=tax_lines)
-        res["base_lines_to_update"] = [
-            (base_line, values)
-            for base_line, values in res["base_lines_to_update"]
-            if base_line["special_type"] != "auto_tax"
-        ]
-        return res

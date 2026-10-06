@@ -57,7 +57,7 @@ class TestTaxAutoOnInvoice(AccountTestInvoicingCommon):
         self.assertAlmostEqual(stamp.balance, balance)
         if amount_currency is not None:
             self.assertAlmostEqual(stamp.amount_currency, amount_currency)
-        self.assertAlmostEqual(move.tax_totals["total_amount_currency"], move.amount_total)
+        self.assertAlmostEqual(move.tax_totals["amount_total"], move.amount_total)
 
     def test_out_invoice_once_per_invoice(self):
         invoice = self._invoice()
@@ -128,7 +128,7 @@ class TestTaxAutoOnInvoice(AccountTestInvoicingCommon):
         self._assert_stamp(invoice, -1.0)
 
     def test_other_company(self):
-        company_2 = self.setup_other_company()["company"]
+        company_2 = self.company_data_2["company"]
         invoice = (
             self.env["account.move"]
             .with_company(company_2)
