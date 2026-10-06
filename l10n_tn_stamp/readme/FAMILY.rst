@@ -1,0 +1,1 @@
+- `Fiscal Stamp per Invoice <apps:tax_auto_on_invoice>`_: the generic engine, any fixed tax once per invoice.
