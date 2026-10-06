@@ -60,6 +60,9 @@ class TestL10nTnStamp(AccountTestInvoicingCommon):
         self.assertEqual(
             sorted(sale_lines.tag_ids.mapped("name")), ["+stamp_sale_due", "-stamp_sale_due"]
         )
+        self.assertEqual(
+            self.stamp_sale.tax_group_id.with_context(lang="en_US").name, "Fiscal Stamp"
+        )
         purchase_lines = self.stamp_purchase.repartition_line_ids.filtered(
             lambda line: line.repartition_type == "tax"
         )
@@ -159,6 +162,7 @@ class TestL10nTnStamp(AccountTestInvoicingCommon):
         account_437 = self.chart.ref("l10n_tn_437")
         self.stamp_sale.write({"auto_tax": False, "invoice_legal_notes": False})
         self.stamp_purchase.auto_tax = False
+        self.stamp_sale.tax_group_id.name = "Fiscal Timbre"
         self.stamp_sale.repartition_line_ids.filtered(
             lambda line: line.repartition_type == "tax"
         ).write({"account_id": account_437.id, "tag_ids": [Command.clear()]})

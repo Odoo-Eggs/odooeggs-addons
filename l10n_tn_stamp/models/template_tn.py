@@ -15,6 +15,11 @@ STAMP_PURCHASE = "l10n_tn_tax_vat_purchase_tax_stamp"
 class AccountChartTemplate(models.AbstractModel):
     _inherit = "account.chart.template"
 
+    @template("tn", "account.tax.group")
+    def _get_tn_stamp_account_tax_group(self):
+        # l10n_tn names the group "Fiscal Timbre" in English
+        return self._parse_csv("tn", "account.tax.group", module="l10n_tn_stamp")
+
     @template("tn", "account.tax")
     def _get_tn_stamp_account_tax(self):
         # Template values are merged field by field: only the per-invoice
@@ -52,6 +57,19 @@ class AccountChartTemplate(models.AbstractModel):
         if not stamps:
             return
         stamps.write({"auto_tax": True, "auto_tax_on_refund": False})
+
+        for xmlid, values in self._get_tn_stamp_account_tax_group().items():
+            group = self.ref(xmlid, raise_if_not_found=False)
+            if group:
+                group.with_context(lang="en_US").name = values["name"]
+                group.update_field_translations(
+                    "name",
+                    {
+                        lang: values[f"name@{lang.split('_')[0]}"]
+                        for lang, _name in self.env["res.lang"].get_installed()
+                        if f"name@{lang.split('_')[0]}" in values
+                    },
+                )
 
         if stamp_sale:
             account = self.ref("l10n_tn_4371", raise_if_not_found=False)
