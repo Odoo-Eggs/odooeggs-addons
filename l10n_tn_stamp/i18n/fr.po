@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0-20260926\n"
+"Project-Id-Version: Odoo Server 19.0-20260926\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-06 19:08+0000\n"
-"PO-Revision-Date: 2026-10-06 19:08+0000\n"
+"POT-Creation-Date: 2026-10-06 19:42+0000\n"
+"PO-Revision-Date: 2026-10-06 19:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -25,6 +25,20 @@ msgstr "Modèle de plan comptable"
 #: model:ir.model,name:l10n_tn_stamp.model_res_config_settings
 msgid "Config Settings"
 msgstr "Paramètres de configuration"
+
+#. module: l10n_tn_stamp
+#: model:ir.model.fields,field_description:l10n_tn_stamp.field_account_chart_template__display_name
+#: model:ir.model.fields,field_description:l10n_tn_stamp.field_account_move__display_name
+#: model:ir.model.fields,field_description:l10n_tn_stamp.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: l10n_tn_stamp
+#: model:ir.model.fields,field_description:l10n_tn_stamp.field_account_chart_template__id
+#: model:ir.model.fields,field_description:l10n_tn_stamp.field_account_move__id
+#: model:ir.model.fields,field_description:l10n_tn_stamp.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
 
 #. module: l10n_tn_stamp
 #: model:ir.model,name:l10n_tn_stamp.model_account_move
