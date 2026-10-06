@@ -1,0 +1,42 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_tn_fodec
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260926\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-06 19:41+0000\n"
+"PO-Revision-Date: 2026-10-06 19:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: l10n_tn_fodec
+#: model:ir.model,name:l10n_tn_fodec.model_account_chart_template
+msgid "Account Chart Template"
+msgstr "Modèle de plan comptable"
+
+#. module: l10n_tn_fodec
+#: model:ir.model.fields,field_description:l10n_tn_fodec.field_account_chart_template__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: l10n_tn_fodec
+#: model:account.report.line,name:l10n_tn_fodec.tax_report_line_fodec
+msgid "FODEC (1%)"
+msgstr "FODEC (1 %)"
+
+#. module: l10n_tn_fodec
+#: model:ir.model.fields,field_description:l10n_tn_fodec.field_account_chart_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_tn_fodec
+#: model:account.report.line,name:l10n_tn_fodec.tax_report_line_fodec_sale
+msgid "Turnover subject to FODEC, net of VAT"
+msgstr "Chiffre d'affaires soumis à la FODEC, hors TVA"
