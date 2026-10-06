@@ -6,7 +6,8 @@
 .. figure:: images/screenshot/stamp_tax_config.png
    :alt: Tax configuration
 
-   Check "Add once per invoice" on a fixed tax (here the Tunisian "1DT Tax stamp").
+   (1) Check "Add once per invoice" on a fixed tax (here the Tunisian "1DT Tax stamp");
+   (2) optionally, also on credit notes.
 
 .. figure:: images/screenshot/journal_items.png
    :alt: Journal items
