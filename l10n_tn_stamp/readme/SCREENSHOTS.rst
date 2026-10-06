@@ -34,5 +34,5 @@ Printed on the invoice
 
 .. image:: images/screenshot/report_mention.png
 
-(1) When the option is on, the mention is printed on the invoices that carry the
+When the option is on, the mention is printed on the invoices that carry the
 stamp.

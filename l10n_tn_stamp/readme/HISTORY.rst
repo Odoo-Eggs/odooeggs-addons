@@ -1,3 +1,10 @@
+20.0.1.0.0
+~~~~~~~~~~
+
+* Migration to Odoo 20, where a tax not linked to the fiscal position of the
+  invoice is dropped: the stamp is kept under the VAT exemption position, and the
+  domestic taxes (VAT) are kept under the public sector position.
+
 19.0.1.0.0
 ~~~~~~~~~~
 
