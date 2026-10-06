@@ -23,7 +23,7 @@ Tunisia - FODEC Tax
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-Odoo-Eggs%2Fodooeggs--addons-lightgray.png?logo=github
-    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/18.0/l10n_tn_fodec
+    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/l10n_tn_fodec
     :alt: Odoo-Eggs/odooeggs-addons
 
 |badge1| |badge2| |badge3| 
@@ -45,7 +45,8 @@ What the module adds to the Tunisian chart of accounts:
 * a **FODEC 1% (cost)** purchase tax, for the bills of manufacturers who invoice
   the FODEC: it is a cost, added to the expense or stock account, and the
   deductible VAT is computed on the right base;
-* the **Export** fiscal position removes the FODEC (exported products are exempt);
+* the **Export** fiscal position replaces the FODEC by a **FODEC 0%** tax (exported
+  products are exempt);
 * a **FODEC** line in the Tunisian tax report (base and FODEC due).
 
 Legal basis: Finance Law for 2000 (Law no. 99-101 of 31 December 1999, art. 36
@@ -62,7 +63,7 @@ Highlights
 - **FODEC 1% sales tax**: computed before the VAT, posted on account 436780.
 - **VAT on price + FODEC**: the VAT base includes the FODEC (VAT code, art. 6).
 - **Vendor bills**: FODEC as a cost, deductible VAT on the right base.
-- **Export exemption**: the Export fiscal position removes the FODEC.
+- **Export exemption**: the Export fiscal position replaces it by FODEC 0%.
 - **Tax report line**: turnover subject to FODEC and FODEC due.
 - **Existing companies**: taxes added at install, no new chart to load.
 - **Works with the fiscal stamp**: compatible with Fiscal Stamp per Invoice.
@@ -139,6 +140,12 @@ Known issues / Roadmap
 Changelog
 =========
 
+19.0.1.0.0
+~~~~~~~~~~
+
+* Migration to Odoo 19: the export exemption is a FODEC 0% tax that replaces the
+  FODEC, as fiscal positions now work with replacement taxes.
+
 18.0.1.0.0
 ~~~~~~~~~~
 
@@ -162,7 +169,7 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/18.0/l10n_tn_fodec>`_ project on GitHub.
+This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/l10n_tn_fodec>`_ project on GitHub.
 
 
 You are welcome to contribute.

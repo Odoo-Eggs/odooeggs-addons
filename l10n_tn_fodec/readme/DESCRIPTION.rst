@@ -15,7 +15,8 @@ What the module adds to the Tunisian chart of accounts:
 * a **FODEC 1% (cost)** purchase tax, for the bills of manufacturers who invoice
   the FODEC: it is a cost, added to the expense or stock account, and the
   deductible VAT is computed on the right base;
-* the **Export** fiscal position removes the FODEC (exported products are exempt);
+* the **Export** fiscal position replaces the FODEC by a **FODEC 0%** tax (exported
+  products are exempt);
 * a **FODEC** line in the Tunisian tax report (base and FODEC due).
 
 Legal basis: Finance Law for 2000 (Law no. 99-101 of 31 December 1999, art. 36

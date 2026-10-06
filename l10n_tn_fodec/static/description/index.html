@@ -17,7 +17,7 @@
 the price <strong>plus</strong> the FODEC, as the Tunisian VAT code requires. The official
 Tunisian localization of Odoo (<span class="docutils literal">l10n_tn</span>) has no FODEC tax: this module adds it,
 ready to use, for new and existing companies.</p>      <div class="eg-badges" style="margin-top:6px">
-        <span class="eg-badge eg-badge-main" style="display:inline-block; border:1px solid #e6e1e5; background:#f7f3f6; color:#714B67; border-radius:999px; padding:3px 12px; margin:0 6px 8px 0; font-size:13px; font-weight:600; border-color:#714B67">Odoo 18</span>
+        <span class="eg-badge eg-badge-main" style="display:inline-block; border:1px solid #e6e1e5; background:#f7f3f6; color:#714B67; border-radius:999px; padding:3px 12px; margin:0 6px 8px 0; font-size:13px; font-weight:600; border-color:#714B67">Odoo 19</span>
         <span class="eg-badge" style="display:inline-block; border:1px solid #e6e1e5; background:#fff; color:#5f6670; border-radius:999px; padding:3px 12px; margin:0 6px 8px 0; font-size:13px; font-weight:600">Requires: Invoicing, l10n_tn</span>
 <span class="eg-badge eg-badge-free" style="display:inline-block; border:1px solid #e6e1e5; background:#fff; color:#1a7f37; border-radius:999px; padding:3px 12px; margin:0 6px 8px 0; font-size:13px; font-weight:600; border-color:#1a7f37">Free</span>      </div>
     </div>
@@ -53,7 +53,7 @@ ready to use, for new and existing companies.</p>      <div class="eg-badges" st
     <div class="col-md-6 col-lg-4 eg-col" style="padding:10px 12px">
       <div class="eg-card" style="background:#fff; border:1px solid #e6e1e5; border-top:3px solid #714B67; border-radius:12px; padding:18px 18px 12px 18px; height:100%; box-shadow:0 2px 8px rgba(31, 35, 40, 0.05)" height="100%">
         <span class="eg-check" style="display:inline-block; width:28px; height:28px; line-height:28px; text-align:center; border-radius:50%; background:#efe4ec; color:#714B67; font-size:17px; font-weight:900; margin-bottom:8px" width="28" height="28" align="center">✓</span>
-<h3 class="eg-card-title" style="font-size:17px; font-weight:700; color:#1f2328; margin:0 0 6px 0">Export exemption</h3>        <div class="eg-card-body" style="color:#5f6670; font-size:14.5px">The Export fiscal position removes the FODEC.</div>
+<h3 class="eg-card-title" style="font-size:17px; font-weight:700; color:#1f2328; margin:0 0 6px 0">Export exemption</h3>        <div class="eg-card-body" style="color:#5f6670; font-size:14.5px">The Export fiscal position replaces it by FODEC 0%.</div>
       </div>
     </div>
     <div class="col-md-6 col-lg-4 eg-col" style="padding:10px 12px">
@@ -88,7 +88,8 @@ posted on account 43678 (other taxes on turnover, 436780 in the chart);</p></li>
 <li><p style="margin:0 0 0.75em 0">a <strong>FODEC 1% (cost)</strong> purchase tax, for the bills of manufacturers who invoice
 the FODEC: it is a cost, added to the expense or stock account, and the
 deductible VAT is computed on the right base;</p></li>
-<li><p style="margin:0 0 0.75em 0">the <strong>Export</strong> fiscal position removes the FODEC (exported products are exempt);</p></li>
+<li><p style="margin:0 0 0.75em 0">the <strong>Export</strong> fiscal position replaces the FODEC by a <strong>FODEC 0%</strong> tax (exported
+products are exempt);</p></li>
 <li><p style="margin:0 0 0.75em 0">a <strong>FODEC</strong> line in the Tunisian tax report (base and FODEC due).</p></li>
 </ul>
 <p style="margin:0 0 0.75em 0">Legal basis: Finance Law for 2000 (Law no. 99-101 of 31 December 1999, art. 36
@@ -175,7 +176,7 @@ to the VAT on the bill lines, or in the <em>Purchase Taxes</em> of the product.<
 </colgroup>
 <thead>
 <tr><th class="head" style="background:#f7f3f6; color:#4f3248; border-bottom:2px solid #714B67; padding:10px 14px; text-align:left; font-weight:700" align="left"><p style="margin:0">Need</p></th>
-<th class="head" style="background:#f7f3f6; color:#4f3248; border-bottom:2px solid #714B67; padding:10px 14px; text-align:left; font-weight:700" align="left"><p style="margin:0">Standard Odoo 18 (l10n_tn)</p></th>
+<th class="head" style="background:#f7f3f6; color:#4f3248; border-bottom:2px solid #714B67; padding:10px 14px; text-align:left; font-weight:700" align="left"><p style="margin:0">Standard Odoo 19 (l10n_tn)</p></th>
 <th class="head" style="background:#f7f3f6; color:#4f3248; border-bottom:2px solid #714B67; padding:10px 14px; text-align:left; font-weight:700" align="left"><p style="margin:0">With this module</p></th>
 </tr>
 </thead>
@@ -245,7 +246,7 @@ price plus the FODEC.</p>
         <button class="accordion-button collapsed eg-faq-q" type="button" data-bs-toggle="collapse" data-bs-target="#eg-faq-4" aria-expanded="false" aria-controls="eg-faq-4" style="font-weight:700; color:#4f3248">What about exports and suspended purchases?</button>
       </h3>
       <div id="eg-faq-4" class="accordion-collapse collapse" aria-labelledby="eg-faq-h4" data-bs-parent="#eg-faq">
-        <div class="accordion-body eg-faq-a" style="color:#5f6670"><p style="margin:0 0 0.75em 0">The <em>Export</em> fiscal position removes the FODEC. Sales under suspension of VAT and
+        <div class="accordion-body eg-faq-a" style="color:#5f6670"><p style="margin:0 0 0.75em 0">The <em>Export</em> fiscal position replaces the FODEC by a FODEC 0% tax. Sales under suspension of VAT and
 FODEC (to totally exporting companies, with a stamped purchase order) are not
 handled by this module.</p>
 </div>
@@ -279,8 +280,8 @@ and the VAT.</p>
   <div class="row">
     <div class="col-md-6 eg-col" style="padding:10px 12px">
       <div class="eg-card eg-card-small" style="background:#fff; border:1px solid #e6e1e5; border-top:3px solid #714B67; border-radius:12px; padding:18px 18px 12px 18px; height:100%; box-shadow:0 2px 8px rgba(31, 35, 40, 0.05)" height="100%">
-<h3 class="eg-card-title" style="font-size:17px; font-weight:700; color:#1f2328; margin:0 0 6px 0"><a class="eg-card-link" href="https://apps.odoo.com/apps/modules/18.0/tax_auto_on_invoice" style="color:#1f2328; text-decoration:none">Fiscal Stamp per Invoice</a></h3>        <div class="eg-card-body" style="color:#5f6670; font-size:14.5px">The Tunisian 1 DT fiscal stamp, once per invoice.</div>
-<a class="eg-more" href="https://apps.odoo.com/apps/modules/18.0/tax_auto_on_invoice" style="display:inline-block; margin-top:6px; color:#714B67; font-weight:600; text-decoration:none; font-size:14px">See the app →</a>      </div>
+<h3 class="eg-card-title" style="font-size:17px; font-weight:700; color:#1f2328; margin:0 0 6px 0"><a class="eg-card-link" href="https://apps.odoo.com/apps/modules/19.0/tax_auto_on_invoice" style="color:#1f2328; text-decoration:none">Fiscal Stamp per Invoice</a></h3>        <div class="eg-card-body" style="color:#5f6670; font-size:14.5px">The Tunisian 1 DT fiscal stamp, once per invoice.</div>
+<a class="eg-more" href="https://apps.odoo.com/apps/modules/19.0/tax_auto_on_invoice" style="display:inline-block; margin-top:6px; color:#714B67; font-weight:600; text-decoration:none; font-size:14px">See the app →</a>      </div>
     </div>
   </div>
 </section>
@@ -310,6 +311,10 @@ checked again at each Tunisian finance law.</p></li>
 <section class="eg-section eg-small" style="padding:28px 18px; border-radius:16px; margin-bottom:12px; font-size:13.5px; color:#5f6670">
   <h2 class="eg-h3" style="color:#4f3248; font-size:18px; font-weight:700; margin:18px 0 10px 0">Changelog</h2>
   <div class="eg-history">
+<h3 style="font-size:14px; font-weight:700; color:#1f2328; margin:12px 0 4px 0">19.0.1.0.0</h3><ul class="simple" style="padding-left:18px; margin:0">
+<li><p style="margin:0 0 0.75em 0">Migration to Odoo 19: the export exemption is a FODEC 0% tax that replaces the
+FODEC, as fiscal positions now work with replacement taxes.</p></li>
+</ul>
 <h3 style="font-size:14px; font-weight:700; color:#1f2328; margin:12px 0 4px 0">18.0.1.0.0</h3><ul class="simple" style="padding-left:18px; margin:0">
 <li><p style="margin:0 0 0.75em 0">First release: FODEC 1% sales and purchase taxes, VAT on price + FODEC, export
 exemption, tax report line, install on existing Tunisian companies.</p></li>

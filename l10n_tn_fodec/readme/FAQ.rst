@@ -17,7 +17,7 @@ price plus the FODEC.
 
 What about exports and suspended purchases?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The *Export* fiscal position removes the FODEC. Sales under suspension of VAT and
+The *Export* fiscal position replaces the FODEC by a FODEC 0% tax. Sales under suspension of VAT and
 FODEC (to totally exporting companies, with a stamped purchase order) are not
 handled by this module.
 
