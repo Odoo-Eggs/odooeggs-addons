@@ -23,7 +23,7 @@ Tunisia - FODEC Tax
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-Odoo-Eggs%2Fodooeggs--addons-lightgray.png?logo=github
-    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/l10n_tn_fodec
+    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/20.0/l10n_tn_fodec
     :alt: Odoo-Eggs/odooeggs-addons
 
 |badge1| |badge2| |badge3| 
@@ -140,6 +140,11 @@ Known issues / Roadmap
 Changelog
 =========
 
+20.0.1.0.0
+~~~~~~~~~~
+
+* Migration to Odoo 20.
+
 19.0.1.0.0
 ~~~~~~~~~~
 
@@ -169,7 +174,7 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/l10n_tn_fodec>`_ project on GitHub.
+This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/20.0/l10n_tn_fodec>`_ project on GitHub.
 
 
 You are welcome to contribute.

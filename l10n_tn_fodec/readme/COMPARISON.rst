@@ -2,7 +2,7 @@
    :header-rows: 1
 
    * - Need
-     - Standard Odoo 19 (l10n_tn)
+     - Standard Odoo 20 (l10n_tn)
      - With this module
    * - FODEC 1% sales tax
      - No
