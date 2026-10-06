@@ -27,6 +27,13 @@ class TestL10nTnFodec(AccountTestInvoicingCommon):
         cls.product_fodec = cls._create_product(
             name="Paint", taxes_id=cls.fodec_sale | cls.vat_sale
         )
+        # The amounts below are FODEC + VAT only: no fiscal stamp added once per
+        # invoice (l10n_tn_stamp turns it on), except in test_fiscal_stamp.
+        if "auto_tax" in cls.env["account.tax"]._fields:
+            (
+                cls.chart.ref("l10n_tn_tax_vat_sale_tax_stamp")
+                | cls.chart.ref("l10n_tn_tax_vat_purchase_tax_stamp")
+            ).auto_tax = False
 
     def _sale_invoice(self, move_type="out_invoice", **kwargs):
         return self._create_invoice(
