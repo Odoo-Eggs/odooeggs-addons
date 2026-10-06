@@ -69,10 +69,10 @@ class TestL10nTnFodec(AccountTestInvoicingCommon):
         # The FODEC amount is part of the VAT base, also in the tax report.
         self.assertEqual(
             sorted(fodec_line.tax_tag_ids.mapped("name")),
-            ["+fodec_sale_due", "+sale_19_base_amount_tag"],
+            ["fodec_sale_due", "sale_19_base_amount_tag"],
         )
         product_line = move.invoice_line_ids
-        self.assertIn("+fodec_sale_base", product_line.tax_tag_ids.mapped("name"))
+        self.assertIn("fodec_sale_base", product_line.tax_tag_ids.mapped("name"))
         # The FODEC is shown before the VAT in the invoice totals.
         groups = move.tax_totals["subtotals"][0]["tax_groups"]
         self.assertEqual(groups[0]["id"], self.fodec_sale.tax_group_id.id)
@@ -84,16 +84,19 @@ class TestL10nTnFodec(AccountTestInvoicingCommon):
         fodec_line = move.line_ids.filtered(lambda line: line.tax_line_id == self.fodec_sale)
         self.assertEqual(
             sorted(fodec_line.tax_tag_ids.mapped("name")),
-            ["-fodec_sale_due", "-sale_19_base_amount_tag"],
+            ["fodec_sale_due", "sale_19_base_amount_tag"],
         )
 
     def test_export(self):
         """Exported products are exempt from FODEC (LF 2000 art. 36)."""
+        # since 19.0: replaced by FODEC 0% (a tax cannot be mapped to nothing)
+        fodec_export = self.chart.ref("l10n_tn_fodec_tax_sale_export")
         self.assertEqual(
-            self.fp_export.map_tax(self.fodec_sale | self.vat_sale), self.vat_sale_0
+            self.fp_export.map_tax(self.fodec_sale | self.vat_sale),
+            fodec_export | self.vat_sale_0,
         )
         move = self._sale_invoice(fiscal_position_id=self.fp_export.id)
-        self.assertEqual(move.invoice_line_ids.tax_ids, self.vat_sale_0)
+        self.assertEqual(move.invoice_line_ids.tax_ids, fodec_export | self.vat_sale_0)
         self.assertAlmostEqual(move.amount_total, 1000.0)
 
     def test_vat_exemption_keeps_fodec(self):
@@ -121,12 +124,11 @@ class TestL10nTnFodec(AccountTestInvoicingCommon):
         self.assertAlmostEqual(self._tax_balance(move, self.vat_purchase), 191.9)
         self.assertAlmostEqual(move.amount_total, 1201.9)
 
-    def test_template_keeps_vat_mappings(self):
-        """The FODEC mapping is added to the l10n_tn VAT mappings of the
-        export position, it does not replace them."""
-        src = self.fp_export.tax_ids.tax_src_id
-        self.assertIn(self.fodec_sale, src)
-        self.assertIn(self.vat_sale, src)
+    def test_export_keeps_vat_mappings(self):
+        """The FODEC replacement tax is added to the export position next to the
+        VAT replacement taxes of l10n_tn."""
+        self.assertIn(self.chart.ref("l10n_tn_fodec_tax_sale_export"), self.fp_export.tax_ids)
+        self.assertIn(self.vat_sale_0, self.fp_export.tax_ids)
 
     def test_tax_report_line(self):
         line = self.env.ref("l10n_tn_fodec.tax_report_line_fodec_sale")
@@ -134,7 +136,7 @@ class TestL10nTnFodec(AccountTestInvoicingCommon):
         tags = line.expression_ids._get_matching_tags()
         self.assertEqual(
             sorted(tags.mapped("name")),
-            ["+fodec_sale_base", "+fodec_sale_due", "-fodec_sale_base", "-fodec_sale_due"],
+            ["fodec_sale_base", "fodec_sale_due"],
         )
 
     def test_existing_company(self):
@@ -142,11 +144,14 @@ class TestL10nTnFodec(AccountTestInvoicingCommon):
         gets the FODEC taxes from the install hook, once."""
         company = self.setup_other_company(name="Existing TN company")["company"]
         chart = self.env["account.chart.template"].with_company(company)
-        taxes = chart.ref("l10n_tn_fodec_tax_sale") | chart.ref("l10n_tn_fodec_tax_purchase")
+        taxes = (
+            chart.ref("l10n_tn_fodec_tax_sale")
+            | chart.ref("l10n_tn_fodec_tax_purchase")
+            | chart.ref("l10n_tn_fodec_tax_sale_export")
+        )
         group = chart.ref("l10n_tn_fodec_tax_group")
         export = chart.ref("l10n_tn_fp_template_export")
         # Back to the state before the install of the module.
-        export.tax_ids.filtered(lambda m: m.tax_src_id in taxes).unlink()
         self.env["ir.model.data"].search(
             [
                 "|",
@@ -168,16 +173,18 @@ class TestL10nTnFodec(AccountTestInvoicingCommon):
             self.env["account.tax"].search_count(
                 [("company_id", "=", company.id), ("tax_group_id.name", "=", "FODEC 1%")]
             ),
-            2,
+            3,
         )
-        self.assertEqual(len(export.tax_ids.filtered(lambda m: m.tax_src_id == fodec)), 1)
+        fodec_export = chart.ref("l10n_tn_fodec_tax_sale_export")
+        self.assertEqual(fodec_export.original_tax_ids, fodec)
         self.assertEqual(
             export.map_tax(fodec | chart.ref("l10n_tn_tax_vat_sale_19")),
-            chart.ref("l10n_tn_tax_vat_sale_0"),
+            fodec_export | chart.ref("l10n_tn_tax_vat_sale_0"),
         )
         # The companies that had the module already are left unchanged.
-        mappings = self.fp_export.tax_ids.filtered(lambda m: m.tax_src_id == self.fodec_sale)
-        self.assertEqual(len(mappings), 1)
+        self.assertEqual(
+            self.fodec_sale.replacing_tax_ids, self.chart.ref("l10n_tn_fodec_tax_sale_export")
+        )
 
     def test_fiscal_stamp(self):
         """With tax_auto_on_invoice: one 1 DT stamp, outside the FODEC and
