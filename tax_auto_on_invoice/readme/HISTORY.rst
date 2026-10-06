@@ -1,8 +1,8 @@
-17.0.1.0.0
+16.0.1.0.0
 ~~~~~~~~~~
 
-* First release for Odoo 17: same features as the 18.0 version, adapted to the
-  Odoo 17 tax engine.
+* First release for Odoo 16: same features as the 18.0 version, adapted to the
+  Odoo 16 tax engine.
 
 18.0.1.0.0
 ~~~~~~~~~~

@@ -7,4 +7,5 @@ This module adds the tax a single time, on the whole document, and lets the
 standard Odoo tax engine do the rest: tax journal item, tax group in the totals,
 tax report, payment terms.
 
-Typical use: the Tunisian **1 DT fiscal stamp** (``l10n_tn``, tax "1DT Tax stamp").
+Typical use: a **fiscal stamp** (stamp duty), such as the Tunisian 1 DT stamp: create a
+fixed tax of 1.00 and check *Add once per invoice*.

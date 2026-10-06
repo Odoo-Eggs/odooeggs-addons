@@ -1,5 +1,5 @@
 #. Go to *Invoicing > Configuration > Taxes* and open the fixed tax to apply once
-   per invoice (e.g. "1DT Tax stamp" with the Tunisian chart of accounts).
+   per invoice (e.g. a fiscal stamp of 1.00; create it if needed).
 #. In the *Advanced Options* tab, check **Add once per invoice**.
    The option is only available for taxes computed as *Fixed*.
 #. Optionally check **Also on credit notes**.

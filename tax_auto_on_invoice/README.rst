@@ -23,7 +23,7 @@ Fiscal Stamp per Invoice
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-Odoo-Eggs%2Fodooeggs--addons-lightgray.png?logo=github
-    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/17.0/tax_auto_on_invoice
+    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/16.0/tax_auto_on_invoice
     :alt: Odoo-Eggs/odooeggs-addons
 
 |badge1| |badge2| |badge3| 
@@ -37,7 +37,8 @@ This module adds the tax a single time, on the whole document, and lets the
 standard Odoo tax engine do the rest: tax journal item, tax group in the totals,
 tax report, payment terms.
 
-Typical use: the Tunisian **1 DT fiscal stamp** (``l10n_tn``, tax "1DT Tax stamp").
+Typical use: a **fiscal stamp** (stamp duty), such as the Tunisian 1 DT stamp: create a
+fixed tax of 1.00 and check *Add once per invoice*.
 
 Highlights
 ==========
@@ -60,7 +61,7 @@ Screenshots
 .. figure:: images/screenshot/stamp_tax_config.png
    :alt: Tax configuration
 
-   (1) Check "Add once per invoice" on a fixed tax (here the Tunisian "1DT Tax stamp");
+   (1) Check "Add once per invoice" on a fixed tax (here a 1.00 fiscal stamp);
    (2) optionally, also on credit notes.
 
 .. figure:: images/screenshot/journal_items.png
@@ -72,7 +73,7 @@ Configuration
 =============
 
 #. Go to *Invoicing > Configuration > Taxes* and open the fixed tax to apply once
-   per invoice (e.g. "1DT Tax stamp" with the Tunisian chart of accounts).
+   per invoice (e.g. a fiscal stamp of 1.00; create it if needed).
 #. In the *Advanced Options* tab, check **Add once per invoice**.
    The option is only available for taxes computed as *Fixed*.
 #. Optionally check **Also on credit notes**.
@@ -100,11 +101,11 @@ Known issues / Roadmap
 Changelog
 =========
 
-17.0.1.0.0
+16.0.1.0.0
 ~~~~~~~~~~
 
-* First release for Odoo 17: same features as the 18.0 version, adapted to the
-  Odoo 17 tax engine.
+* First release for Odoo 16: same features as the 18.0 version, adapted to the
+  Odoo 16 tax engine.
 
 18.0.1.0.0
 ~~~~~~~~~~
@@ -129,7 +130,7 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/17.0/tax_auto_on_invoice>`_ project on GitHub.
+This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/16.0/tax_auto_on_invoice>`_ project on GitHub.
 
 
 You are welcome to contribute.
