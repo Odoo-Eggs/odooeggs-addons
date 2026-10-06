@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0-20260926\n"
+"Project-Id-Version: Odoo Server 19.0-20260926\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-06 19:10+0000\n"
-"PO-Revision-Date: 2026-10-06 19:10+0000\n"
+"POT-Creation-Date: 2026-10-06 19:41+0000\n"
+"PO-Revision-Date: 2026-10-06 19:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -22,9 +22,19 @@ msgid "Account Chart Template"
 msgstr "Modèle de plan comptable"
 
 #. module: l10n_tn_fodec
+#: model:ir.model.fields,field_description:l10n_tn_fodec.field_account_chart_template__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: l10n_tn_fodec
 #: model:account.report.line,name:l10n_tn_fodec.tax_report_line_fodec
 msgid "FODEC (1%)"
 msgstr "FODEC (1 %)"
+
+#. module: l10n_tn_fodec
+#: model:ir.model.fields,field_description:l10n_tn_fodec.field_account_chart_template__id
+msgid "ID"
+msgstr "ID"
 
 #. module: l10n_tn_fodec
 #: model:account.report.line,name:l10n_tn_fodec.tax_report_line_fodec_sale
