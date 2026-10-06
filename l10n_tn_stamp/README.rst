@@ -23,7 +23,7 @@ Tunisia - Fiscal Stamp
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-Odoo-Eggs%2Fodooeggs--addons-lightgray.png?logo=github
-    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/18.0/l10n_tn_stamp
+    :target: https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/l10n_tn_stamp
     :alt: Odoo-Eggs/odooeggs-addons
 
 |badge1| |badge2| |badge3| 
@@ -88,8 +88,10 @@ Public sector exemption
 
 .. image:: images/screenshot/public_sector.png
 
-Set this fiscal position on the customers paid by payment order of the State,
-local authorities and public bodies.
+Since Odoo 19, an exemption is a replacement tax: (1) this stamp of 0 applies
+under the Export and Public sector fiscal positions, (2) where it replaces the
+1.000 TND stamp. Set the Public sector position on the customers paid by payment
+order of the State, local authorities and public bodies.
 
 Optional legal mention
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -144,6 +146,13 @@ Known issues / Roadmap
 Changelog
 =========
 
+19.0.1.0.0
+~~~~~~~~~~
+
+* Migration to Odoo 19: the export and public sector exemptions are stamps of 0
+  that replace the 1 DT stamp, as fiscal positions now work with replacement
+  taxes.
+
 18.0.1.0.0
 ~~~~~~~~~~
 
@@ -169,7 +178,7 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/18.0/l10n_tn_stamp>`_ project on GitHub.
+This module is part of the `Odoo-Eggs/odooeggs-addons <https://github.com/Odoo-Eggs/odooeggs-addons/tree/19.0/l10n_tn_stamp>`_ project on GitHub.
 
 
 You are welcome to contribute.

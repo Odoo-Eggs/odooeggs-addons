@@ -17,8 +17,10 @@ Public sector exemption
 
 .. image:: images/screenshot/public_sector.png
 
-Set this fiscal position on the customers paid by payment order of the State,
-local authorities and public bodies.
+Since Odoo 19, an exemption is a replacement tax: (1) this stamp of 0 applies
+under the Export and Public sector fiscal positions, (2) where it replaces the
+1.000 TND stamp. Set the Public sector position on the customers paid by payment
+order of the State, local authorities and public bodies.
 
 Optional legal mention
 ~~~~~~~~~~~~~~~~~~~~~~
