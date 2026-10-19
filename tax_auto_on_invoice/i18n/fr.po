@@ -1,0 +1,75 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* tax_auto_on_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20261015\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-19 19:08+0000\n"
+"PO-Revision-Date: 2026-10-19 19:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: tax_auto_on_invoice
+#: model:ir.model.fields,field_description:tax_auto_on_invoice.field_account_tax__auto_tax
+msgid "Add once per invoice"
+msgstr "Ajouter une fois par facture"
+
+#. module: tax_auto_on_invoice
+#: model:ir.model.fields,help:tax_auto_on_invoice.field_account_tax__auto_tax_on_refund
+msgid "Also add the tax to credit notes."
+msgstr "Ajouter aussi la taxe sur les avoirs."
+
+#. module: tax_auto_on_invoice
+#: model:ir.model.fields,field_description:tax_auto_on_invoice.field_account_tax__auto_tax_on_refund
+msgid "Also on credit notes"
+msgstr "Aussi sur les avoirs"
+
+#. module: tax_auto_on_invoice
+#: model:ir.model.fields,field_description:tax_auto_on_invoice.field_account_move__display_name
+#: model:ir.model.fields,field_description:tax_auto_on_invoice.field_account_tax__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: tax_auto_on_invoice
+#: model:ir.model.fields,field_description:tax_auto_on_invoice.field_account_move__id
+#: model:ir.model.fields,field_description:tax_auto_on_invoice.field_account_tax__id
+msgid "ID"
+msgstr ""
+
+#. module: tax_auto_on_invoice
+#: model:ir.model,name:tax_auto_on_invoice.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: tax_auto_on_invoice
+#: model:ir.model,name:tax_auto_on_invoice.model_account_tax
+msgid "Tax"
+msgstr "Taxe"
+
+#. module: tax_auto_on_invoice
+#. odoo-python
+#: code:addons/tax_auto_on_invoice/models/account_tax.py:0
+msgid ""
+"The tax '%s' can be added once per invoice only if its computation is "
+"'Fixed'."
+msgstr ""
+"La taxe '%s' ne peut être ajoutée qu'une fois par facture que si son calcul "
+"est « Fixe »."
+
+#. module: tax_auto_on_invoice
+#: model:ir.model.fields,help:tax_auto_on_invoice.field_account_tax__auto_tax
+msgid ""
+"The tax is added automatically to every invoice of its type (sale or "
+"purchase), once per document and not once per line. Typical use: fiscal "
+"stamp (timbre fiscal), stamp duty."
+msgstr ""
+"La taxe est ajoutée automatiquement à chaque facture de son type (vente ou "
+"achat), une fois par document et non une fois par ligne. Usage typique : "
+"timbre fiscal, droit de timbre."
